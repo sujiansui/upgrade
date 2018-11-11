@@ -192,12 +192,9 @@ typedef struct _SEND_COMM
 
 typedef struct _REC_COMM
 {
-	int isstart; //接收到数据
-	int isover; //是否超时
-	int isupdate;//升级中
-	int ack; //接收到回复
-	int accord; //主动发送的数据
+	int start; //接收到数据
 	int cnt;
+
 	int p; //当前接收的指针
 	int len;
 	int direct;//方向
@@ -227,7 +224,7 @@ typedef struct _FILE
 
 LOCAL_STRU Local;
 _SEND_COMM_STRU Multi_comm_Buff[COMM_MAX];
-_REC_COMM_STRU bus;
+_REC_COMM_STRU com_rec;
 _WAIT_A20_ACK_STRU wait_ack;
 _COM_SETTING_STRU com_set;
 _FILE_STRU up_file;
@@ -235,7 +232,7 @@ _FILE_STRU up_file;
 
 extern LOCAL_STRU Local;
 extern _SEND_COMM_STRU Multi_comm_Buff[COMM_MAX];
-extern _REC_COMM_STRU bus;
+extern _REC_COMM_STRU com_rec;
 extern _WAIT_A20_ACK_STRU wait_ack;
 extern _COM_SETTING_STRU com_set;
 extern _FILE_STRU up_file;

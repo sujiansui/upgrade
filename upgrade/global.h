@@ -75,7 +75,7 @@
 #define OFF 		0
 
 
-
+#define COMNULL 0xff
 #define HEAD 0xBD
 #define LIFTHEAD 0xED
 #define BLUE_HEAD 0x0D
@@ -224,7 +224,7 @@ LOCAL_STRU Local;
 _SEND_COMM_STRU Multi_comm_Buff[COMM_MAX];
 _REC_COMM_STRU bus;
 _WAIT_A20_ACK_STRU wait_ack;
-_COM_SETTING_STRU set;
+_COM_SETTING_STRU com_set;
 
 #else
 
@@ -232,5 +232,5 @@ extern LOCAL_STRU Local;
 extern _SEND_COMM_STRU Multi_comm_Buff[COMM_MAX];
 extern _REC_COMM_STRU bus;
 extern _WAIT_A20_ACK_STRU wait_ack;
-extern _COM_SETTING_STRU set;
+extern _COM_SETTING_STRU com_set;
 #endif

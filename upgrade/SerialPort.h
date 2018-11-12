@@ -174,7 +174,7 @@ struct serialPortBuffer
 
 #define MaxSerialPortNum 200    ///有效的串口总个数，不是串口的号 //add by itas109 2014-01-09
 #define IsReceiveString  1      //采用何种方式接收：ReceiveString 1多字符串接收（对应响应函数为Wm_SerialPort_RXSTR），ReceiveString 0一个字符一个字符接收（对应响应函数为Wm_SerialPort_RXCHAR）
-#define _SEND_DATA_WITH_SIGSLOT //使用sigslot传输接收的数据
+//#define _SEND_DATA_WITH_SIGSLOT //使用sigslot传输接收的数据
 
 #ifdef _SEND_DATA_WITH_SIGSLOT
 	#include "sigslot.h"

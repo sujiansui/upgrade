@@ -94,8 +94,8 @@
 #define MAXPORTIN 10
 #define MAXPORTOUT 5
 
-#define BUSWAIT 11 //内部等待100MS
-#define NETWAIT 101 //网络等待1S
+#define BYTEWAIT 100 //字节超时100MS
+#define ACKWAIT 1000 //等待回复1S
 #define ACKTIME 3 //延时50MS左右进行回复，避免接收方处理不来
 
 #define AIR_WIND_NULL 0
@@ -178,40 +178,46 @@ typedef struct LOCAL
 
 typedef struct _SEND_COMM
 {
-	int isValid;
-	int port;
-	int SendNum; //发送次数
-	int SendTime; //发送时间计数
-	int WaitTime; //等待回复时间
-	int circle; //循环码
-	int len;   //发送长度
-	int sum;
-	int buf[COMM_SIZE];
+	unsigned char isValid;
+	unsigned char port;
+	unsigned char SendNum; //发送次数
+	unsigned char SendTime; //发送时间计数
+	unsigned char WaitTime; //等待回复时间
+	unsigned char circle; //循环码
+	unsigned char len;   //发送长度
+	unsigned char sum;
+	unsigned char buf[COMM_SIZE];
 }_SEND_COMM_STRU;
 
 
 typedef struct _REC_COMM
 {
-	int start; //接收到数据
-	int cnt;
+	unsigned char start; //接收到数据
+	unsigned char cnt;
 
-	int p; //当前接收的指针
-	int len;
-	int direct;//方向
-	int type;
-	int cmd;
-	int circle;
-	int fcs;
-	int buf[COMM_SIZE];
+	unsigned char p; //当前接收的指针
+	unsigned char len;
+	unsigned char direct;//方向
+	unsigned char type;
+	unsigned char cmd;
+	unsigned char circle;
+	unsigned char fcs;
+	unsigned char buf[COMM_SIZE];
 }_REC_COMM_STRU;
 
 typedef struct _WAIT_A20_ACK
 {
-	int start;
+	bool start;
 	int over;
-
 	int cnt;
 }_WAIT_A20_ACK_STRU;
+
+typedef struct _WAIT_BYTE_ACK
+{
+	bool start;
+	int over;
+	int cnt;
+}_WAIT_BYTE_ACK_STRU;
 
 typedef struct _FILE
 {
@@ -225,7 +231,8 @@ typedef struct _FILE
 LOCAL_STRU Local;
 _SEND_COMM_STRU Multi_comm_Buff[COMM_MAX];
 _REC_COMM_STRU com_rec;
-_WAIT_A20_ACK_STRU wait_ack;
+_WAIT_A20_ACK_STRU com_ack;
+_WAIT_BYTE_ACK_STRU com_byte;
 _COM_SETTING_STRU com_set;
 _FILE_STRU up_file;
 #else
@@ -233,7 +240,8 @@ _FILE_STRU up_file;
 extern LOCAL_STRU Local;
 extern _SEND_COMM_STRU Multi_comm_Buff[COMM_MAX];
 extern _REC_COMM_STRU com_rec;
-extern _WAIT_A20_ACK_STRU wait_ack;
+extern _WAIT_A20_ACK_STRU com_ack;
+extern _WAIT_BYTE_ACK_STRU com_byte;
 extern _COM_SETTING_STRU com_set;
 extern _FILE_STRU up_file;
 #endif

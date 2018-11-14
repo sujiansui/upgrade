@@ -95,7 +95,7 @@
 #define MAXPORTOUT 5
 
 #define BYTEWAIT 100 //字节超时100MS
-#define ACKWAIT 1000 //等待回复1S
+#define ACKWAIT 3000 //等待回复1S
 #define ACKTIME 3 //延时50MS左右进行回复，避免接收方处理不来
 
 #define AIR_WIND_NULL 0
@@ -195,7 +195,7 @@ typedef struct _REC_COMM
 	unsigned char start; //接收到数据
 	unsigned char cnt;
 
-	unsigned char p; //当前接收的指针
+	int p; //当前接收的指针
 	unsigned char len;
 	unsigned char direct;//方向
 	unsigned char type;

@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CEqu.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SerialPort.h" />
@@ -193,6 +194,7 @@
     <ClInclude Include="upgradeDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CEqu.cpp" />
     <ClCompile Include="SerialPort.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>

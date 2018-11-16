@@ -225,6 +225,13 @@ typedef struct _FILE
 	unsigned char buf[65536];//用于储存从BIN文件获取的数据
 }_FILE_STRU;
 
+typedef struct _EQU
+{
+	int type;
+	byte addrh;
+	byte addrl;
+}_EQU_STRU;
+
 #ifndef _GLOBAL_H
 #define _GLOBAL_H
 
@@ -235,6 +242,7 @@ _WAIT_A20_ACK_STRU com_ack;
 _WAIT_BYTE_ACK_STRU com_byte;
 _COM_SETTING_STRU com_set;
 _FILE_STRU up_file;
+_EQU_STRU equ;
 #else
 
 extern LOCAL_STRU Local;
@@ -244,4 +252,5 @@ extern _WAIT_A20_ACK_STRU com_ack;
 extern _WAIT_BYTE_ACK_STRU com_byte;
 extern _COM_SETTING_STRU com_set;
 extern _FILE_STRU up_file;
+extern _EQU_STRU equ;
 #endif

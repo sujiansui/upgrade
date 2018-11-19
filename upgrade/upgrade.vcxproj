@@ -197,6 +197,7 @@
     <ClCompile Include="CEqu.cpp" />
     <ClCompile Include="SerialPort.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="stdafx.cpp">
